@@ -1,0 +1,96 @@
+{
+  "medicines": [
+    {
+      "id": "1",
+      "name": "Paracetamol",
+      "category": "Antalgique",
+      "price": 5000,
+      "quantity": 97,
+      "expirationDate": "2025-12-31"
+    },
+    {
+      "id": "2",
+      "name": "Amoxicilline",
+      "category": "Antibiotique",
+      "price": 1500,
+      "quantity": 5,
+      "expirationDate": "2026-06-15"
+    },
+    {
+      "id": "1758026101987",
+      "name": "test1",
+      "category": "test1",
+      "price": 10000,
+      "quantity": 50,
+      "expirationDate": "2025-09-16"
+    },
+    {
+      "id": "1758026101988",
+      "name": "test2",
+      "category": "test2",
+      "price": 70000,
+      "quantity": 4,
+      "expirationDate": "2025-09-16"
+    },
+    {
+      "id": "jqopppxayr",
+      "name": "test4",
+      "category": "test3",
+      "price": 56555,
+      "quantity": 55,
+      "expirationDate": "2025-09-16"
+    }
+  ],
+  "sales": [
+    {
+      "id": "1",
+      "medicineId": 1,
+      "quantity": 2,
+      "date": "2024-05-15T10:30:00Z"
+    },
+    {
+      "id": "1758034216761",
+      "medicineId": "1",
+      "quantity": 2,
+      "date": "2025-09-16T14:50:16.761Z"
+    },
+    {
+      "id": "1759143589748",
+      "medicineId": "1",
+      "quantity": 1,
+      "date": "2025-09-29T10:59:49.748Z"
+    },
+    {
+      "id": "1759177304950",
+      "medicineId": "1",
+      "quantity": 25,
+      "date": "2025-09-29T20:21:44.950Z"
+    },
+    {
+      "id": "1760015388445",
+      "medicineId": "1",
+      "quantity": 3,
+      "date": "2025-10-09T13:09:48.445Z"
+    },
+    {
+      "id": "1760017407208",
+      "medicineId": "1758026101988",
+      "quantity": 2,
+      "date": "2025-10-09T13:43:27.208Z"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "admin",
+      "role": "admin"
+    },
+    {
+      "id": "2",
+      "username": "user",
+      "password": "user",
+      "role": "user"
+    }
+  ]
+}

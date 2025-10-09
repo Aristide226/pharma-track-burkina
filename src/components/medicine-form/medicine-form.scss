@@ -1,0 +1,141 @@
+// 🌿 Palette & variables
+$primary-color: #2e7d32;
+$primary-dark: #1b5e20;
+$primary-light: #4caf50;
+$error-color: #d32f2f;
+$background-color: #f9f9f9;
+$text-color: #333;
+$border-radius: 8px;
+$shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+// 🧱 Structure principale
+:host {
+  display: block;
+  padding: 2rem;
+  background: $background-color;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+h2 {
+  text-align: center;
+  color: $primary-dark;
+  margin-bottom: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+// 🧾 Formulaire
+form {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: white;
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+
+  div {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+      color: $text-color;
+    }
+
+    input {
+      padding: 0.6rem 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: $border-radius;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+
+      &:focus {
+        border-color: $primary-color;
+        box-shadow: 0 0 0 3px rgba($primary-color, 0.15);
+        outline: none;
+      }
+    }
+
+    span {
+      margin-top: 0.4rem;
+      color: $error-color;
+      font-size: 0.9rem;
+    }
+  }
+
+  // 🔘 Boutons
+  button {
+    padding: 0.7rem 1.4rem;
+    border: none;
+    border-radius: $border-radius;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-right: 0.5rem;
+
+    &:first-of-type {
+      background-color: $primary-color;
+      color: white;
+
+      &:hover {
+        background-color: $primary-dark;
+      }
+
+      &:disabled {
+        background-color: lighten($primary-color, 20%);
+        cursor: not-allowed;
+      }
+    }
+
+    &:last-of-type {
+      background-color: #e0e0e0;
+      color: $text-color;
+
+      &:hover {
+        background-color: darken(#e0e0e0, 5%);
+      }
+    }
+  }
+
+  // 🧍 Alignement boutons
+  button[type="submit"],
+  button[type="button"] {
+    align-self: flex-start;
+  }
+}
+
+// 💫 Effet visuel à la soumission (facultatif)
+form.ng-submitted {
+  animation: pulse 0.3s ease;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// 📱 Responsive
+@media (max-width: 600px) {
+  form {
+    padding: 1.2rem;
+    gap: 1rem;
+  }
+
+  button {
+    width: 100%;
+    margin-bottom: 0.6rem;
+  }
+}

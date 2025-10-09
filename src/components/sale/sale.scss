@@ -1,0 +1,107 @@
+// 🌿 Palette principale
+$primary-color: #2e7d32; // Vert santé
+$primary-light: #4caf50;
+$primary-dark: #1b5e20;
+$error-color: #d32f2f;
+$background-color: #f9f9f9;
+$text-color: #333;
+$border-radius: 8px;
+
+// 🌐 Structure générale
+form {
+  max-width: 480px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: $border-radius;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  h2 {
+    text-align: center;
+    color: $primary-dark;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+  }
+
+  div {
+    margin-bottom: 1.2rem;
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: $text-color;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 0.6rem 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: $border-radius;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+
+      &:focus {
+        border-color: $primary-color;
+        box-shadow: 0 0 0 3px rgba($primary-color, 0.15);
+        outline: none;
+      }
+    }
+
+    // Message d’erreur
+    span {
+      display: block;
+      margin-top: 0.4rem;
+      color: $error-color;
+      font-size: 0.9rem;
+    }
+  }
+
+  // 🔘 Boutons
+  button {
+    padding: 0.7rem 1.4rem;
+    border: none;
+    border-radius: $border-radius;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-right: 0.5rem;
+
+    &:first-of-type {
+      background-color: $primary-color;
+      color: white;
+
+      &:hover {
+        background-color: $primary-dark;
+      }
+
+      &:disabled {
+        background-color: lighten($primary-color, 20%);
+        cursor: not-allowed;
+      }
+    }
+
+    &:last-of-type {
+      background-color: #e0e0e0;
+      color: $text-color;
+
+      &:hover {
+        background-color: darken(#e0e0e0, 5%);
+      }
+    }
+  }
+}
+
+// 📱 Responsive
+@media (max-width: 600px) {
+  form {
+    padding: 1.2rem;
+  }
+
+  button {
+    width: 100%;
+    margin-bottom: 0.6rem;
+  }
+}

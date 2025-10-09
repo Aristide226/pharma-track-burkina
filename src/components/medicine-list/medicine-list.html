@@ -1,0 +1,44 @@
+<h2>Liste des médicaments disponibles</h2>
+
+<a *ngIf="isAdminUser" routerLink="/medicines/add" style="display: inline-block; padding: 10px; background-color: #4CAF50; color: white; text-decoration: none; margin-bottom: 20px;">
+  Ajouter un médicament
+</a>
+
+<div *ngIf="lowStockMedicines.length > 0 && isAdminUser" style="background-color: #f8d7da; color: #721c24; padding: 15px; margin-bottom: 20px;">
+  <h3>Alerte de rupture de stock !</h3>
+  <p>Les médicaments suivants ont une quantité inférieure à 10 :</p>
+  <ul>
+    <li *ngFor="let medicine of lowStockMedicines">
+      {{ medicine.name }} ({{ medicine.quantity }} en stock)
+    </li>
+  </ul>
+</div>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Catégorie</th>
+      <th>Prix (FCFA)</th>
+      <th>Quantité</th>
+      <th>Date d'expiration</th>
+      <th *ngIf="isAdminUser">Action</th> 
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let medicine of medicines">
+      <td>{{ medicine.name }}</td>
+      <td>{{ medicine.category }}</td>
+      <td>{{ medicine.price }}</td>
+      <td>{{ medicine.quantity }}</td>
+      <td>{{ medicine.expirationDate | date:'longDate' }}</td>
+      
+      <td *ngIf="isAdminUser">
+        
+          <a [routerLink]="['/medicines/edit', medicine.id]" style="margin-right: 5px;">Modifier</a>
+          <button (click)="deleteMedicine(medicine.id)">Supprimer</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

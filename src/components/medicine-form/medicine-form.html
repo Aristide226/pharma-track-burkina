@@ -1,0 +1,46 @@
+<h2>{{ isEditMode ? 'Modifier un médicament' : 'Ajouter un nouveau médicament' }}</h2>
+
+<form [formGroup]="medicineForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Nom :</label>
+    <input id="name" type="text" formControlName="name">
+    <div *ngIf="medicineForm.get('name')?.invalid && (medicineForm.get('name')?.dirty || medicineForm.get('name')?.touched)">
+      <span style="color: red;">Le nom est obligatoire.</span>
+    </div>
+  </div>
+
+  <div>
+    <label for="category">Catégorie :</label>
+    <input id="category" type="text" formControlName="category">
+    <div *ngIf="medicineForm.get('category')?.invalid && (medicineForm.get('category')?.dirty || medicineForm.get('category')?.touched)">
+      <span style="color: red;">La catégorie est obligatoire.</span>
+    </div>
+  </div>
+
+  <div>
+    <label for="price">Prix (FCFA) :</label>
+    <input id="price" type="number" formControlName="price">
+    <div *ngIf="medicineForm.get('price')?.invalid && (medicineForm.get('price')?.dirty || medicineForm.get('price')?.touched)">
+      <span style="color: red;">Le prix est obligatoire et doit être supérieur à 0.</span>
+    </div>
+  </div>
+
+  <div>
+    <label for="quantity">Quantité :</label>
+    <input id="quantity" type="number" formControlName="quantity">
+    <div *ngIf="medicineForm.get('quantity')?.invalid && (medicineForm.get('quantity')?.dirty || medicineForm.get('quantity')?.touched)">
+      <span style="color: red;">La quantité est obligatoire et doit être positive.</span>
+    </div>
+  </div>
+
+  <div>
+    <label for="expirationDate">Date d'expiration :</label>
+    <input id="expirationDate" type="date" formControlName="expirationDate">
+    <div *ngIf="medicineForm.get('expirationDate')?.invalid && (medicineForm.get('expirationDate')?.dirty || medicineForm.get('expirationDate')?.touched)">
+      <span style="color: red;">La date d'expiration est obligatoire.</span>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="medicineForm.invalid">{{ isEditMode ? 'Modifier' : 'Ajouter' }}</button>
+  <button type="button" (click)="router.navigate(['/medicines'])">Annuler</button>
+</form>

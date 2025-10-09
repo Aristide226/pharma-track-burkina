@@ -1,0 +1,27 @@
+<h2>Enregistrer une vente</h2>
+
+<form [formGroup]="saleForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="medicine">Médicament :</label>
+    <select id="medicine" formControlName="medicine">
+      <option [ngValue]="null" disabled>-- Sélectionner un médicament --</option>
+      <option *ngFor="let medicine of medicines" [ngValue]="medicine">
+        {{ medicine.name }} (Stock: {{ medicine.quantity }})
+      </option>
+    </select>
+    <div *ngIf="saleForm.get('medicine')?.invalid && saleForm.get('medicine')?.touched">
+      <span style="color: red;">Veuillez sélectionner un médicament.</span>
+    </div>
+  </div>
+
+  <div>
+    <label for="quantity">Quantité :</label>
+    <input id="quantity" type="number" formControlName="quantity">
+    <div *ngIf="saleForm.get('quantity')?.invalid && saleForm.get('quantity')?.touched">
+      <span style="color: red;">La quantité est obligatoire et doit être supérieure à 0.</span>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="saleForm.invalid">Enregistrer la vente</button>
+  <button type="button" [routerLink]="['/']">Annuler</button>
+</form>

@@ -1,0 +1,120 @@
+// 🌿 Couleurs et variables
+$pharma-green: #2ecc71;
+$pharma-green-dark: #27ae60;
+$background-gray: #f0f2f5;
+$error-color: #e74c3c;
+$border-radius: 10px;
+
+// 🧭 Container global
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: $background-gray;
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+// 🧱 Formulaire (style carte moderne)
+form {
+  background-color: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: $border-radius;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+  }
+}
+
+// 🏷️ Titre
+h2 {
+  text-align: center;
+  color: $pharma-green-dark;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+}
+
+// 🧍‍♂️ Champs
+div {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+
+  label {
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: #1c1e21;
+    font-size: 0.95rem;
+  }
+
+  input {
+    padding: 0.9rem;
+    border: 1px solid #dcdfe3;
+    border-radius: $border-radius;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $pharma-green;
+      box-shadow: 0 0 0 3px rgba($pharma-green, 0.15);
+    }
+  }
+}
+
+// 🔘 Bouton
+button {
+  background-color: $pharma-green;
+  color: white;
+  border: none;
+  border-radius: $border-radius;
+  padding: 0.9rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: $pharma-green-dark;
+    box-shadow: 0 4px 10px rgba($pharma-green, 0.3);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &:disabled {
+    background-color: lighten($pharma-green, 20%);
+    cursor: not-allowed;
+  }
+}
+
+// ⚠️ Message d’erreur
+p {
+  color: $error-color !important;
+  font-size: 0.9rem;
+  margin-top: 0.4rem;
+  font-weight: 500;
+}
+
+// 📱 Responsive
+@media (max-width: 480px) {
+  form {
+    width: 90%;
+    padding: 2rem 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}

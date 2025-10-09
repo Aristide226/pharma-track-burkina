@@ -1,0 +1,182 @@
+// 🌿 Palette & variables
+$primary-color: #2e7d32;
+$primary-light: #4caf50;
+$primary-dark: #1b5e20;
+$error-bg: #f8d7da;
+$error-text: #721c24;
+$text-color: #333;
+$background-color: #fafafa;
+$border-radius: 8px;
+$shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+
+// 🧾 Structure générale
+:host {
+  display: block;
+  padding: 2rem;
+  background: $background-color;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+// 🔹 Titre principal
+h2 {
+  color: $primary-dark;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+// ➕ Bouton “Ajouter un médicament”
+a[routerLink="/medicines/add"] {
+  display: inline-block;
+  background-color: $primary-color;
+  color: white;
+  text-decoration: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: $border-radius;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: $shadow;
+  margin-bottom: 1.5rem;
+
+  &:hover {
+    background-color: $primary-dark;
+    transform: translateY(-2px);
+  }
+}
+
+// ⚠️ Bloc alerte de stock faible
+div[ngif] {
+  &.ng-star-inserted {
+    background-color: $error-bg;
+    color: $error-text;
+    border-left: 5px solid darken($error-bg, 10%);
+    padding: 1rem 1.5rem;
+    border-radius: $border-radius;
+    margin-bottom: 1.5rem;
+    box-shadow: $shadow;
+
+    h3 {
+      margin-top: 0;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    ul {
+      margin-top: 0.5rem;
+      padding-left: 1.5rem;
+      list-style-type: disc;
+
+      li {
+        margin-bottom: 0.3rem;
+        font-size: 0.95rem;
+      }
+    }
+  }
+}
+
+// 📊 Tableau des médicaments
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: $border-radius;
+  overflow: hidden;
+  box-shadow: $shadow;
+
+  thead {
+    background-color: $primary-color;
+    color: white;
+
+    th {
+      text-align: left;
+      padding: 0.8rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.3px;
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid #e0e0e0;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background-color: #f5f5f5;
+      }
+
+      td {
+        padding: 0.8rem;
+        font-size: 0.95rem;
+        color: $text-color;
+        vertical-align: middle;
+
+        // Lien “Modifier”
+        a {
+          color: $primary-color;
+          font-weight: 500;
+          text-decoration: none;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: $primary-dark;
+            text-decoration: underline;
+          }
+        }
+
+        // Bouton “Supprimer”
+        button {
+          background-color: #d32f2f;
+          color: white;
+          border: none;
+          border-radius: $border-radius;
+          padding: 0.4rem 0.8rem;
+          cursor: pointer;
+          font-size: 0.9rem;
+          transition: background-color 0.3s ease, transform 0.2s ease;
+
+          &:hover {
+            background-color: darken(#d32f2f, 8%);
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
+  }
+}
+
+// 📱 Responsive design
+@media (max-width: 768px) {
+  :host {
+    padding: 1rem;
+  }
+
+  table {
+    font-size: 0.9rem;
+    thead {
+      display: none;
+    }
+
+    tbody tr {
+      display: block;
+      margin-bottom: 1rem;
+      border: 1px solid #ddd;
+      border-radius: $border-radius;
+      padding: 0.8rem;
+
+      td {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.4rem 0;
+
+        &::before {
+          content: attr(data-label);
+          font-weight: 600;
+          color: $primary-dark;
+        }
+      }
+    }
+  }
+}

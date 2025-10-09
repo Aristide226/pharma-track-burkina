@@ -1,0 +1,29 @@
+<!-- <nav>
+  <div class="nav-links">
+    <a routerLink="/medicines" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Médicaments</a>
+    
+    <a *ngIf="isAdmin()" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+    
+    <a *ngIf="isAdmin()" routerLink="/sales" routerLinkActive="active">Enregistrer une vente</a>
+  </div>
+  </nav> -->
+  <nav>
+  <div class="nav-links">
+    <a *ngIf="isAdmin()" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+    
+    <a routerLink="/medicines" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Médicaments</a>
+    
+    <a *ngIf="isAdmin()" routerLink="/sales" routerLinkActive="active">Enregistrer une vente</a>
+  </div>
+
+  <form (ngSubmit)="onSearch()" class="search-form">
+    <input type="text" [(ngModel)]="searchQuery" name="search" placeholder="Rechercher un médicament...">
+    <button type="submit">Rechercher</button>
+  </form>
+  
+  <div class="auth-links">
+    <a *ngIf="!isLoggedIn()" routerLink="/login" routerLinkActive="active">Connexion</a>
+    
+    <a *ngIf="isLoggedIn()" (click)="logout()" style="cursor: pointer;">Déconnexion</a>
+  </div>
+</nav>
