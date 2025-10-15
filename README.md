@@ -34,7 +34,7 @@ Assurez-vous d'avoir installé :
 * npm ou yarn
 * Angular CLI (`npm install -g @angular/cli`)
 
-### 1. Installation des Dépendances
+### Installation des Dépendances
 
 Clonez le dépôt et installez les dépendances Angular et json-server :
 
