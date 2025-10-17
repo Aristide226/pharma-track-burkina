@@ -7,6 +7,9 @@ PharmaTrack est une application web monopage (SPA) construite avec **Angular** q
 
 L'objectif principal est de fournir un tableau de bord pour l'administration, de gérer les stocks de médicaments, d'alerter sur les ruptures, et d'enregistrer les transactions de vente.
 
+### Demonstration
+https://youtu.be/PhDjs2gXTgg?si=3XfU-kcLrXQ7tVXA
+
 ## 🌟 Fonctionnalités Implémentées
 
 * **Gestion des Stocks (CRUD)** : Ajouter, Modifier, Afficher et Supprimer des médicaments.
